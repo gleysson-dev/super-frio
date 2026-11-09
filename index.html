@@ -1,684 +1,441 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Frio Refrigeração - Especialistas em Climatização</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .frosted-glass {
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        .scroll-smooth {
-            scroll-behavior: smooth;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superfrio Manutenção | Climatização & Refrigeração BH</title>
+  <meta name="description" content="Especialistas em instalação e manutenção de ar-condicionado, montagem de câmaras frias e PMOC em Belo Horizonte e Região Metropolitana.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0b3954;
+      --primary-dark: #072537;
+      --accent: #00a8e8;
+      --accent-hover: #0087ba;
+      --whatsapp: #25d366;
+      --instagram: #e1306c;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --bg-light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: var(--white); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Top Bar */
+    .topbar { background: var(--primary-dark); color: #cbd5e1; font-size: 13px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .topbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .topbar span { display: flex; align-items: center; gap: 6px; }
+
+    /* Header & Nav */
+    header { background: var(--white); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    nav { display: flex; justify-content: space-between; align-items: center; height: 75px; }
+    .logo { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+    .nav-links a { font-weight: 600; font-size: 14px; color: var(--text-dark); transition: 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .btn-header { background: var(--primary); color: var(--white); padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; transition: 0.2s; }
+    .btn-header:hover { background: var(--accent); }
+
+    /* Hero Section */
+    .hero { background: linear-gradient(135deg, rgba(7, 37, 55, 0.95), rgba(11, 57, 84, 0.88)), url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80') center/cover; color: var(--white); padding: 90px 0 80px; }
+    .hero-content { max-width: 750px; }
+    .badge { display: inline-block; background: rgba(0, 168, 232, 0.2); color: var(--accent); border: 1px solid var(--accent); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; }
+    .hero h1 { font-size: 44px; font-weight: 800; line-height: 1.2; margin-bottom: 18px; }
+    .hero p { font-size: 18px; color: #e2e8f0; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: var(--white); padding: 14px 28px; border-radius: 6px; font-weight: 700; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 12px 26px; border-radius: 6px; font-weight: 700; transition: 0.2s; }
+    .btn-outline:hover { background: var(--white); color: var(--primary); }
+
+    /* Features Strip */
+    .features-strip { background: var(--white); border-bottom: 1px solid var(--border); padding: 25px 0; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; text-align: center; }
+    .feature-item h4 { font-size: 15px; color: var(--primary); font-weight: 700; }
+    .feature-item p { font-size: 13px; color: var(--text-light); }
+
+    /* Services */
+    .section { padding: 80px 0; }
+    .bg-light { background: var(--bg-light); }
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title h2 { font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+    .section-title p { color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 16px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .service-card { background: var(--white); border-radius: 10px; padding: 30px; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.08); border-color: var(--accent); }
+    .service-icon { width: 50px; height: 50px; background: rgba(0, 168, 232, 0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent); margin-bottom: 20px; }
+    .service-card h3 { font-size: 19px; color: var(--primary); margin-bottom: 12px; }
+    .service-card p { font-size: 14px; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+    .service-card ul { list-style: none; margin-bottom: 20px; font-size: 13px; color: var(--text-dark); }
+    .service-card ul li { margin-bottom: 6px; }
+    .service-card ul li::before { content: "✓ "; color: var(--accent); font-weight: bold; }
+
+    /* Calculator Section */
+    .calc-box { background: var(--white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.07); padding: 40px; border: 1px solid var(--border); max-width: 800px; margin: 0 auto; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group label { font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+    .form-group select, .form-group input { padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; outline: none; transition: 0.2s; }
+    .form-group select:focus, .form-group input:focus { border-color: var(--accent); }
+    .calc-result { background: #e0f2fe; border: 1px dashed var(--accent); border-radius: 8px; padding: 20px; margin-top: 20px; display: none; }
+    .calc-result h4 { color: var(--primary); font-size: 16px; margin-bottom: 8px; }
+    .calc-price { font-size: 26px; font-weight: 800; color: #0369a1; margin-bottom: 12px; }
+
+    /* Coverage / RMBH */
+    .coverage-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 25px; }
+    .coverage-tag { background: var(--white); border: 1px solid var(--border); padding: 8px 18px; border-radius: 20px; font-size: 14px; font-weight: 600; color: var(--primary); }
+
+    /* Footer */
+    footer { background: var(--primary-dark); color: #cbd5e1; padding: 60px 0 25px; font-size: 14px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-col h4 { color: var(--white); font-size: 16px; margin-bottom: 18px; font-weight: 700; }
+    .footer-col p { font-size: 13px; line-height: 1.8; }
+    .footer-col a { color: var(--accent); transition: 0.2s; }
+    .footer-col a:hover { color: var(--white); text-decoration: underline; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px; text-align: center; font-size: 12px; color: #94a3b8; }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background-color: var(--whatsapp); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 9999; transition: 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .calc-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
-<body class="scroll-smooth font-sans bg-gray-50 text-gray-800">
-    <!-- Header/Navigation -->
-    <header class="fixed w-full z-50">
-        <nav class="bg-white shadow-lg">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 flex items-center">
-                            <i class="fas fa-snowflake text-blue-600 text-2xl mr-2"></i>
-                            <span class="text-xl font-bold text-blue-800">SUPER FRIO</span>
-                        </div>
-                    </div>
-                    <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                        <a href="#inicio" class="text-blue-800 hover:text-blue-600 px-3 py-2 font-medium">Início</a>
-                        <a href="#servicos" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Serviços</a>
-                        <a href="#sobre" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Sobre Nós</a>
-                        <a href="#clientes" class="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium">Clientes</a>
-                        <a href="#contato" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 font-medium">Contato</a>
-                    </div>
-                    <div class="-mr-2 flex items-center md:hidden">
-                        <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 focus:outline-none">
-                            <i class="fas fa-bars text-xl"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#inicio" class="block px-3 py-2 text-blue-800 font-medium">Início</a>
-                    <a href="#servicos" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Serviços</a>
-                    <a href="#sobre" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Sobre Nós</a>
-                    <a href="#clientes" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Clientes</a>
-                    <a href="#contato" class="block px-3 py-2 bg-blue-600 text-white rounded-md text-center">Contato</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <!-- Botão Flutuante do WhatsApp -->
-<a href="https://wa.me/553191471506" 
-   class="whatsapp-button" 
-   target="_blank" 
-   title="Fale conosco pelo WhatsApp">
-   <img src="wlogo.png" 
-        alt="WhatsApp" />
-</a>
-
-<!-- Estilo CSS -->
-<style>
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 1000;
-}
-.whatsapp-button img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  cursor: pointer;
-}
-</style>
-    
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Soluções em Refrigeração e Climatização</h1>
-                    <p class="text-xl mb-8 opacity-90">Especialistas em sistemas de refrigeração comercial e climatização de ambientes. Garantimos qualidade e eficiência energética para seu negócio.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contato" class="bg-white text-blue-800 px-6 py-3 rounded-md font-bold text-center hover:bg-gray-100 transition duration-300">Solicitar Orçamento</a>
-                        <a href="#servicos" class="frosted-glass border border-white px-6 py-3 rounded-md font-medium text-center hover:bg-white hover:bg-opacity-20 transition duration-300">Nossos Serviços</a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <img src="supermercado.jpg" alt="Sistema de refrigeração" class="rounded-lg shadow-2xl max-w-full h-auto">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-clock text-blue-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-blue-800">Atendimento Rápido</h3>
-                    </div>
-                    <p class="text-gray-700">Equipe disponível para emergências. Garantimos atendimento em até 3 horas para clientes prioritários.</p>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-medal text-blue-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-blue-800">Qualidade Garantida</h3>
-                    </div>
-                    <p class="text-gray-700">Trabalhamos apenas com equipamentos de primeira linha e peças originais. e com garantia em serviços.</p>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-leaf text-blue-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-blue-800">Eficiência Energética</h3>
-                    </div>
-                    <p class="text-gray-700">Soluções que reduzem até 40% no consumo de energia, com retorno do investimento em curto prazo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicos" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-800 mb-4">Nossos Serviços</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Oferecemos soluções completas em refrigeração e climatização para diversos segmentos do mercado.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-500 ease-in-out">
-                    <div class="h-48 bg-blue-600 flex items-center justify-center">
-                        <i class="fas fa-store-alt text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Refrigeração Comercial</h3>
-                        <p class="text-gray-600 mb-4">Instalação e manutenção de câmaras frigoríficas, balcões refrigerados e sistemas para supermercados, padarias e restaurantes.</p>
-                        <ul class="text-gray-700 space-y-2">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Projetos personalizados</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Manutenção preventiva</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Atendimento emergencial</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-500 ease-in-out">
-                    <div class="h-48 bg-blue-700 flex items-center justify-center">
-                        <i class="fas fa-home text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Climatização Residencial</h3>
-                        <p class="text-gray-600 mb-4">Instalação de ar condicionado split, manutenção, limpeza e higienização de aparelhos para sua casa.</p>
-                        <ul class="text-gray-700 space-y-2">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Instalação profissional</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Limpeza técnica</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Recarga de gás</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-500 ease-in-out">
-                    <div class="h-48 bg-blue-800 flex items-center justify-center">
-                        <i class="fas fa-building text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Climatização Corporativa</h3>
-                        <p class="text-gray-600 mb-4">Soluções completas para empresas: ar condicionado central, VRF, chillers e sistemas de ventilação industrial.</p>
-                        <ul class="text-gray-700 space-y-2">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Projeto HVAC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Eficiência energética</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Manutenção programada</li>
-                        </ul>
-                    </div>
-                </div>
-
-                     <!-- Service 4 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-500 ease-in-out">
-                    <div class="h-48 bg-blue-700 flex items-center justify-center">
-                        <i class="fas fa-solid fa-eye text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Manutenção preventiva</h3>
-                        <p class="text-gray-600 mb-4">Procedimentos especificos, para cada equipamento, em cada situação especifica.</p>
-                        <ul class="text-gray-700 space-y-2">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Teste de eficiencia</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Limpeza técnica</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Recarga de gás</li>
-                        </ul>
-                    </div>
-                </div>
-
-     <!-- Service 5 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-500 ease-in-out">
-                    <div class="h-48 bg-blue-700 flex items-center justify-center">
-                         <i class="fa-regular fa-square-check text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Manutençao preditiva</h3>
-                        <p class="text-gray-600 mb-4">Intervenção no equipamento antes mesmo que o defeito aconteça.</p>
-                        <ul class="text-gray-700 space-y-2">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Instalação profissional</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Prevenir paradas inesperadas</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Substituir componetes proximos a falha</li>
-                        </ul>
-                    </div>
-                </div>
-
-
- <!-- Service 6 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-500 ease-in-out">
-                    <div class="h-48 bg-blue-700 flex items-center justify-center">
-                        <i class="fa-solid fa-wrench text-white text-6xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-800 mb-3">Montagem e manutenção corretiva</h3>
-                        <p class="text-gray-600 mb-4">Montagem e manutenção de equipamentos comerciais, industriais, e residenciais.</p>
-                        <ul class="text-gray-700 space-y-2">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> HVAC</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Camara fria</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Resfriadores</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- About Section -->
-    <section id="sobre" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <img src="fundo3.jpg" alt="Equipe Super Frio" class="rounded-lg shadow-lg w-full">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold text-blue-800 mb-6">Sobre a Super Frio Refrigeração</h2>
-                    <p class="text-gray-700 mb-6">Fundada em 2021, a Super Frio Refrigeração se consolidou como referência no mercado de climatização e refrigeração comercial, atendendo clientes em todo o território nacional.</p>
-                    <p class="text-gray-700 mb-6">Nossa equipe é composta por técnicos altamente qualificados e certificados pelos principais fabricantes do setor, garantindo serviços de excelência e soluções personalizadas para cada necessidade.</p>
-                    
-                    <div class="mb-6">
-                        <h3 class="text-xl font-semibold text-blue-700 mb-3">Nossa Missão</h3>
-                        <p class="text-gray-700">Proporcionar conforto térmico e soluções em refrigeração com excelência técnica, inovação e comprometimento com a satisfação dos nossos clientes.</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <div class="text-blue-600 text-3xl font-bold mb-2">5+</div>
-                            <div class="text-gray-700">Anos de Experiência</div>
-                        </div>
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <div class="text-blue-600 text-3xl font-bold mb-2">1.000+</div>
-                            <div class="text-gray-700">Atendimentos</div>
-                        </div>
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <div class="text-blue-600 text-3xl font-bold mb-2">24H</div>
-                            <div class="text-gray-700">Atendimento</div>
-                        </div>
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <div class="text-blue-600 text-3xl font-bold mb-2">100%</div>
-                            <div class="text-gray-700">Satisfação Garantida</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clients Section -->
-    <section id="clientes" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-800 mb-4">Nossos Clientes</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Trabalhamos com empresas dos mais diversos segmentos, garantindo qualidade e eficiência em nossos serviços.</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="supermercado.jpg" alt="Supermercado" class="h-25 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="camara.jpg" alt="Restaurante" class="h-25 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="split1.jpg" class="h-20 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="split1.png" alt="Indústria" class="h-25 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="split.jpg" alt="Farmácia" class="h-25 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="fundo2.jpeg" class="h-25 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="fundo.jpeg" alt="Hospital" class="h-25 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm flex justify-center">
-                    <img src="camarat.png" alt="Padaria" class="h-25 object-contain">
-                </div>
-            </div>
-            
-            <div class="mt-12 bg-blue-800 rounded-xl p-8 text-white">
-                <div class="md:flex items-center">
-                    <div class="md:w-2/3 mb-6 md:mb-0">
-                        <h3 class="text-2xl font-bold mb-4">Seja nosso próximo cliente satisfeito!</h3>
-                        <p>Junte-se as empresas que ja confiaram na Super Frio para suas necessidades de refrigeração e climatização.</p>
-                    </div>
-                    <div class="md:w-1/3 flex justify-center md:justify-end">
-                        <a href="#contato" class="bg-white text-blue-800 px-6 py-3 rounded-md font-bold hover:bg-gray-100 transition duration-300 whitespace-nowrap">Fale Conosco</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-800 mb-4">Depoimentos</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">O que nossos clientes dizem sobre nossos serviços</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-4">"A Super Frio instalou nosso sistema de camara fria comercial há 3 anos e desde então nunca tivemos problemas. O atendimento é excelente e a manutenção preventiva faz toda diferença."</p>
-                    <div class="flex items-center">
-                        <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                            <span class="text-blue-800 font-bold">JM</span>
-                        </div>
-                        <div>
-                            <div class="font-semibold">João Mendes</div>
-                            <div class="text-sm text-gray-600">Supermecado</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-4">"Contratamos a Super Frio para climatizar nosso escritório e o resultado foi além do esperado. O projeto foi bem elaborado e o sistema funciona perfeitamente, com redução significativa no consumo de energia."</p>
-                    <div class="flex items-center">
-                        <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                            <span class="text-blue-800 font-bold">AS</span>
-                        </div>
-                        <div>
-                            <div class="font-semibold">Felipe Souza</div>
-                            <div class="text-sm text-gray-600">Clinica de estetica</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 italic mb-4">"Quando meu frezer expositor de bebidas quebrou em pleno verão, a Super Frio nos atendeu em menos de 2 horas e resolveu o problema rapidamente. Profissionais extremamente competentes e atenciosos."</p>
-                    <div class="flex items-center">
-                        <div class="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                            <span class="text-blue-800 font-bold">RC</span>
-                        </div>
-                        <div>
-                            <div class="font-semibold">Roberto Costa</div>
-                            <div class="text-sm text-gray-600">Distribuidora</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato" class="py-16 bg-blue-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
-                    <p class="mb-8 text-blue-100">Estamos prontos para atender suas necessidades em refrigeração e climatização. Preencha o formulário ou utilize nossos outros canais de contato.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Endereço</h4>
-                                <p class="text-blue-100">Av. Principal, <br>Bairro Vila esperanca - Contagem/Mg</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Telefones</h4>
-                                <p class="text-blue-100">(31) 99147-1506<br>(31) 99147-1506 (WhatsApp)</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">E-mail</h4>
-                                <p class="text-blue-100">superfriomanutencao@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="bg-blue-700 p-3 rounded-full mr-4">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Horário de Atendimento</h4>
-                                <p class="text-blue-100">Seg-Sex: 8h às 18h<br>Sáb: 8h às 12h<br>Plantão para emergências</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8 flex space-x-4">
-                        <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/super.frioo/" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://wa.me/553191471506" class="bg-blue-700 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                
-     <div class="md:w-1/2">
-                <form id="form" class="bg-white rounded-lg shadow-lg p-6 text-gray-800 max-w-xl mx-auto">
-  <h3 class="text-xl font-bold text-blue-800 mb-6">Envie sua mensagem</h3>
-
-  <div class="mb-4">
-    <label for="nome" class="block text-gray-700 font-medium mb-2">Nome</label>
-    <input type="text" name="nome" id="nome" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+  <!-- Topbar com Informações de BH -->
+  <div class="topbar">
+    <div class="container">
+      <span>📍 Atendimento técnico em Belo Horizonte e Região Metropolitana</span>
+      <span>⏰ Plantão e Atendimento Rápido: (31) 99147-1506</span>
+    </div>
   </div>
 
-  <div class="mb-4">
-    <label for="email" class="block text-gray-700 font-medium mb-2">E-mail</label>
-    <input type="email" name="email" id="email" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">SUPER<span>FRIO</span> <small style="font-size:12px; font-weight:400; color:#64748b;">MANUTENÇÃO</small></a>
+        <ul class="nav-links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#camaras">Câmaras Frias</a></li>
+          <li><a href="#pmoc">PMOC</a></li>
+          <li><a href="#calculadora">Simulador de Preço</a></li>
+          <li><a href="#regioes">Regiões</a></li>
+        </ul>
+        <a href="https://wa.me/5531991471506?text=Olá,%20gostaria%20de%20um%20orçamento%20com%20a%20Superfrio%20Manutenção." target="_blank" class="btn-header">Falar com Técnico</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="badge">Especialistas em Refrigeração & Climatização</span>
+        <h1>Soluções Frigoríficas e Ar-Condicionado em BH e RMBH</h1>
+        <p>Instalação de precisão, montagem de câmaras frias comerciais e industriais, manutenção preventiva e corretiva conforme normas ABNT e NR-35.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5531991471506?text=Olá,%20preciso%20de%20atendimento%20para%20refrigeração." target="_blank" class="btn-primary">
+            Solicitar Orçamento Agora
+          </a>
+          <a href="#calculadora" class="btn-outline">Simular Custos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Strip -->
+  <div class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <h4>Técnicos Qualificados</h4>
+          <p>Profissionais com certificação e NR-35/NR-10</p>
+        </div>
+        <div class="feature-item">
+          <h4>Materiais Padrão ABNT</h4>
+          <p>Cobre puro e isolamento elastomérico blindado</p>
+        </div>
+        <div class="feature-item">
+          <h4>Laudos & PMOC</h4>
+          <p>Documentação exigida pela Vigilância Sanitária em BH</p>
+        </div>
+        <div class="feature-item">
+          <h4>Garantia Formal</h4>
+          <p>Segurança técnica em contrato para todos os serviços</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="mb-4">
-    <label for="telefone" class="block text-gray-700 font-medium mb-2">Telefone</label>
-    <input type="tel" name="telefone" id="telefone" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-  </div>
+  <!-- Serviços -->
+  <section id="servicos" class="section bg-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>Serviços Especializados</h2>
+        <p>Engenharia prática aplicada para garantir máximo rendimento térmico e menor consumo de energia.</p>
+      </div>
 
-  <div class="mb-4">
-    <label for="servico" class="block text-gray-700 font-medium mb-2">Serviço de Interesse</label>
-    <select name="servico" id="servico" required
-            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option value="">Selecione...</option>
-      <option value="refrigeracao-comercial">Refrigeração Comercial</option>
-      <option value="climatizacao-residencial">Climatização Residencial</option>
-      <option value="climatizacao-corporativa">Climatização Corporativa</option>
-      <option value="manutencao">Manutenção</option>
-      <option value="outros">Outros</option>
-    </select>
-  </div>
+      <div class="services-grid">
+        <!-- Ar Condicionado Residencial e Comercial -->
+        <div class="service-card">
+          <div class="service-icon">❄️</div>
+          <h3>Ar-Condicionado (Split & VRF)</h3>
+          <p>Instalação padrão fabricante, troca de compressores, recolhimento de fluido ecológico e higienização antibacteriana.</p>
+          <ul>
+            <li>Split Hi-Wall (9k a 24k BTUs)</li>
+            <li>Piso-Teto e Cassete (30k a 60k BTUs)</li>
+            <li>Multi Split e Sistemas VRF</li>
+          </ul>
+          <a href="https://wa.me/5531991471506?text=Orçamento+Ar+Condicionado" target="_blank" class="btn-header" style="text-align:center;">Pedir Proposta</a>
+        </div>
 
-  <div class="mb-4">
-    <label for="mensagem" class="block text-gray-700 font-medium mb-2">Mensagem</label>
-    <textarea name="mensagem" id="mensagem" rows="4" required
-              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-  </div>
+        <!-- Câmaras Frias -->
+        <div id="camaras" class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>Câmaras Frias Comerciais</h3>
+          <p>Projeto, montagem de painéis isotérmicos (PIR/EPS), balanceamento de unidades condensadoras e evaporadores.</p>
+          <ul>
+            <li>Câmaras de Resfriados (0°C a 10°C)</li>
+            <li>Câmaras de Congelados (-18°C a -25°C)</li>
+            <li>Adequação de válvulas e controladores digitais</li>
+          </ul>
+          <a href="https://wa.me/5531991471506?text=Orçamento+Câmara+Fria" target="_blank" class="btn-header" style="text-align:center;">Pedir Proposta</a>
+        </div>
 
-  <button type="submit"
-          class="w-full bg-blue-600 text-white py-3 px-4 rounded-md font-bold hover:bg-blue-700 transition duration-300">
-    Enviar Mensagem
-  </button>
-</form>
+        <!-- Refrigeração Comercial/Industrial -->
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <h3>Refrigeração Comercial e Industrial</h3>
+          <p>Suporte contínuo para supermercados, açougues, padarias, distribuidoras e indústrias químicas/alimentícias.</p>
+          <ul>
+            <li>Balcões frigoríficos e ilhas de congelados</li>
+            <li>Chillers e resfriadores de líquidos</li>
+            <li>Detecção de microvazamentos de nitrogênio</li>
+          </ul>
+          <a href="https://wa.me/5531991471506?text=Orçamento+Refrigeração+Comercial" target="_blank" class="btn-header" style="text-align:center;">Pedir Proposta</a>
+        </div>
 
-<!-- JAVASCRIPT PARA ENVIO -->
-<script>
-  document.getElementById("form").addEventListener("submit", function(e){
-    e.preventDefault();
-    const dados = Object.fromEntries(new FormData(e.target));
-    
-    fetch("https://sheetdb.io/api/v1/hghuax26fmi74", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data: dados })
-    })
-    .then(res => {
-      if(res.ok){
-        alert("Mensagem enviada com sucesso!");
-        e.target.reset(); // limpa os campos
-      } else {
-        alert("Erro ao enviar. Tente novamente.");
+        <!-- PMOC -->
+        <div id="pmoc" class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Contratos de Manutenção & PMOC</h3>
+          <p>Plano de Manutenção, Operação e Controle conforme a Lei Federal 13.589/2018 para comércios e empresas de BH.</p>
+          <ul>
+            <li>Visitas periódicas preventivas</li>
+            <li>Redução no consumo da conta de luz</li>
+            <li>Emissão de relatórios técnicos regulares</li>
+          </ul>
+          <a href="https://wa.me/5531991471506?text=Orçamento+PMOC" target="_blank" class="btn-header" style="text-align:center;">Solicitar PMOC</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simulador de Orçamento em Tempo Real -->
+  <section id="calculadora" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Simulador de Orçamentos</h2>
+        <p>Preencha as características da sua demanda para ter uma estimativa transparente baseada no mercado de BH e região.</p>
+      </div>
+
+      <div class="calc-box">
+        <div class="calc-grid">
+          <div class="form-group">
+            <label>Seu Nome ou Empresa:</label>
+            <input type="text" id="calcNome" placeholder="Ex: Lucas / Supermercado BH">
+          </div>
+
+          <div class="form-group">
+            <label>Cidade / Bairro:</label>
+            <select id="calcRegiao">
+              <option value="0">Belo Horizonte (Zona Sul / Centro / Oeste)</option>
+              <option value="40">Belo Horizonte (Pampulha / Venda Nova)</option>
+              <option value="70">Contagem / Betim</option>
+              <option value="90">Nova Lima / Alphaville</option>
+              <option value="90">Santa Luzia / Sabará / Vespasiano</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Tipo de Equipamento:</label>
+            <select id="calcTipo">
+              <option value="ac_pequeno">Ar-Condicionado 9.000 a 12.000 BTUs</option>
+              <option value="ac_medio">Ar-Condicionado 18.000 a 24.000 BTUs</option>
+              <option value="ac_grande">Piso-Teto / Cassete (30k a 60k BTUs)</option>
+              <option value="camara_peq">Câmara Fria até 2.5 HP</option>
+              <option value="camara_med">Câmara Fria Média (3.0 a 6.0 HP)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Tipo de Intervenção:</label>
+            <select id="calcServico">
+              <option value="instalacao">Instalação / Montagem Completa</option>
+              <option value="preventiva">Manutenção Preventiva / Limpeza</option>
+              <option value="corretiva">Manutenção Corretiva / Diagnóstico</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Distância da Linha Frigorífica:</label>
+            <select id="calcDistancia">
+              <option value="0">Padrão até 3 metros (Sem custo extra)</option>
+              <option value="2">Metros extras: + 2 metros (+R$ 200)</option>
+              <option value="5">Metros extras: + 5 metros (+R$ 500)</option>
+              <option value="10">Metros extras: + 10 metros (+R$ 1.000)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Acesso e Altura da Condensadora:</label>
+            <select id="calcAltura">
+              <option value="0">Térreo ou Acesso Fácil (Sem custo adicional)</option>
+              <option value="150">Acima de 3m / Escada alta (+R$ 150)</option>
+              <option value="350">Uso de Andaime / Telhado crítico (+R$ 350)</option>
+            </select>
+          </div>
+        </div>
+
+        <button onclick="gerarEstimativa()" class="btn-primary" style="width:100%; justify-content:center; border:none; cursor:pointer;">
+          Calcular Estimativa de Preço
+        </button>
+
+        <div id="resultadoEstimativa" class="calc-result">
+          <h4>Pré-Orçamento Estimado - Superfrio Manutenção:</h4>
+          <div class="calc-price" id="precoEstimado">R$ 0,00</div>
+          <p id="detalhesEstimativa" style="font-size:13px; color:#334155; margin-bottom:15px;"></p>
+          <button onclick="enviarViaWhats()" class="btn-primary" style="background:var(--whatsapp); border:none; cursor:pointer; width:100%; justify-content:center;">
+            Confirmar e Enviar via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regiões Atendidas -->
+  <section id="regioes" class="section bg-light">
+    <div class="container" style="text-align:center;">
+      <div class="section-title">
+        <h2>Regiões Atendidas com Frota Própria</h2>
+        <p>Atendimento rápido e equipe técnica pronta para deslocamento imediato em Minas Gerais:</p>
+      </div>
+      <div class="coverage-tags">
+        <span class="coverage-tag">Belo Horizonte (Todas as Regiões)</span>
+        <span class="coverage-tag">Contagem (Eldorado, Cidade Industrial, Riacho)</span>
+        <span class="coverage-tag">Betim</span>
+        <span class="coverage-tag">Nova Lima & Alphaville Lagoa dos Ingleses</span>
+        <span class="coverage-tag">Santa Luzia</span>
+        <span class="coverage-tag">Vespasiano & Lagoa Santa</span>
+        <span class="coverage-tag">Sabará</span>
+        <span class="coverage-tag">Ibirité & Sarzedo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 style="color:#fff; margin-bottom:10px;">Superfrio Manutenção</h3>
+          <p>Sua parceira definitiva em refrigeração comercial, câmaras frigoríficas industriais e climatização predial em BH.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <p>• Instalação de Split e Cassete<br>• Montagem de Câmaras Frias<br>• Manutenção Preventiva PMOC<br>• Balcões e Chillers</p>
+        </div>
+        <div class="footer-col">
+          <h4>Contatos & Redes</h4>
+          <p>📞 WhatsApp: <a href="https://wa.me/5531991471506" target="_blank">(31) 99147-1506</a><br>
+             ✉️ E-mail: Superfriomanutencao@gmail.com<br>
+             📸 Instagram: <a href="https://www.instagram.com/super.frioo" target="_blank">@super.frioo</a><br>
+             📍 Belo Horizonte - MG</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Superfrio Manutenção. Todos os direitos reservados. Belo Horizonte - MG.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/5531991471506?text=Olá!%20Encontrei%20a%20Superfrio%20no%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="whatsapp-float" title="Chame no WhatsApp">
+    💬
+  </a>
+
+  <!-- Script da Calculadora -->
+  <script>
+    let dadosMsgWhatsapp = "";
+
+    function gerarEstimativa() {
+      const nome = document.getElementById('calcNome').value || "Cliente";
+      const regiaoVal = parseFloat(document.getElementById('calcRegiao').value);
+      const regiaoTxt = document.getElementById('calcRegiao').selectedOptions[0].text;
+      const tipoVal = document.getElementById('calcTipo').value;
+      const tipoTxt = document.getElementById('calcTipo').selectedOptions[0].text;
+      const servicoVal = document.getElementById('calcServico').value;
+      const servicoTxt = document.getElementById('calcServico').selectedOptions[0].text;
+      const distVal = parseFloat(document.getElementById('calcDistancia').value) * 100; // R$ 100 por metro excedente
+      const alturaVal = parseFloat(document.getElementById('calcAltura').value);
+
+      let valorBase = 650;
+
+      if (servicoVal === 'instalacao') {
+        if (tipoVal === 'ac_pequeno') valorBase = 650;
+        else if (tipoVal === 'ac_medio') valorBase = 950;
+        else if (tipoVal === 'ac_grande') valorBase = 1800;
+        else if (tipoVal === 'camara_peq') valorBase = 3200;
+        else if (tipoVal === 'camara_med') valorBase = 4600;
+      } else if (servicoVal === 'preventiva') {
+        if (tipoVal === 'ac_pequeno') valorBase = 220;
+        else if (tipoVal === 'ac_medio') valorBase = 320;
+        else if (tipoVal === 'ac_grande') valorBase = 450;
+        else valorBase = 500;
+      } else { // corretiva
+        valorBase = (tipoVal.startsWith('camara')) ? 450 : 280;
       }
-    });
-  });
-</script>
 
-    <!-- Map Section -->
+      const total = valorBase + regiaoVal + distVal + alturaVal;
 
-         
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="md:flex md:justify-between">
-                <div class="mb-8 md:mb-0">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-snowflake text-blue-400 text-2xl mr-2"></i>
-                        <span class="text-xl font-bold">SUPER FRIO</span>
-                    </div>
-                    <p class="text-blue-300 max-w-xs">Especialistas em refrigeração comercial e climatização de ambientes desde 2020.</p>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
-                    <div>
-                        <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#inicio" class="text-blue-300 hover:text-white">Início</a></li>
-                            <li><a href="#servicos" class="text-blue-300 hover:text-white">Serviços</a></li>
-                            <li><a href="#sobre" class="text-blue-300 hover:text-white">Sobre Nós</a></li>
-                            <li><a href="#clientes" class="text-blue-300 hover:text-white">Clientes</a></li>
-                            <li><a href="#contato" class="text-blue-300 hover:text-white">Contato</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-semibold mb-4">Serviços</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-blue-300 hover:text-white">Refrigeração Comercial</a></li>
-                            <li><a href="#" class="text-blue-300 hover:text-white">Climatização Residencial</a></li>
-                            <li><a href="#" class="text-blue-300 hover:text-white">Climatização Corporativa</a></li>
-                            <li><a href="#" class="text-blue-300 hover:text-white">Manutenção Preventiva</a></li>
-                            <li><a href="#" class="text-blue-300 hover:text-white">Atendimeto Emergêncial </a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
-                        <p class="text-blue-300 mb-4">Receba dicas e promoções em seu e-mail.</p>
-                        <form class="flex">
-                            <input type="email" placeholder="Seu e-mail" class="px-4 py-2 rounded-l-md text-gray-800 w-full focus:outline-none">
-                            <button type="submit" class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-r-md">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center md:text-left">
-                <div class="md:flex md:justify-between">
-                    <p class="text-blue-300">© 2023 Super Frio Refrigeração. Todos os direitos reservados.</p>
-                    <div class="mt-4 md:mt-0">
-                        <a href="#" class="text-blue-300 hover:text-white mr-4">Termos de Serviço</a>
-                        <a href="#" class="text-blue-300 hover:text-white mr-4">Política de Privacidade</a>
-                        <a href="#" class="text-blue-300 hover:text-white">FAQ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+      document.getElementById('precoEstimado').innerText = `R$ ${total.toFixed(2)}`;
+      document.getElementById('detalhesEstimativa').innerHTML = 
+        `Estimativa para: <strong>${tipoTxt}</strong> (${servicoTxt})<br>` +
+        `Localidade: <strong>${regiaoTxt}</strong><br>` +
+        `<em>*Valores de referência sujeitos à validação presencial das condições elétricas e estruturais.</em>`;
+      
+      document.getElementById('resultadoEstimativa').style.display = 'block';
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hidden">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+      // Monta texto pro WhatsApp com o número correto
+      dadosMsgWhatsapp = `*SOLICITAÇÃO DE ORÇAMENTO PELO SITE*\n` +
+        `*Cliente:* ${nome}\n` +
+        `*Equipamento:* ${tipoTxt}\n` +
+        `*Serviço:* ${servicoTxt}\n` +
+        `*Região:* ${regiaoTxt}\n` +
+        `*Estimativa Calculada:* R$ ${total.toFixed(2)}\n\n` +
+        `Gostaria de agendar uma vistoria ou fechar o serviço!`;
+    }
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('hidden');
-            } else {
-                backToTopButton.classList.add('hidden');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Form submission (example)
-        const contactForm = document.querySelector('form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
-                this.reset();
-            });
-        }
-    </script>
+    function enviarViaWhats() {
+      const url = `https://api.whatsapp.com/send?phone=5531991471506&text=${encodeURIComponent(dadosMsgWhatsapp)}`;
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
